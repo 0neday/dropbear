@@ -19,9 +19,9 @@ IMPORTANT: Some options will require "make clean" after changes */
 #define DROPBEAR_DEFADDRESS ""
 
 /* Default hostkey paths - these can be specified on the command line */
-#define DSS_PRIV_FILENAME "/etc/dropbear/dropbear_dss_host_key"
-#define RSA_PRIV_FILENAME "/etc/dropbear/dropbear_rsa_host_key"
-#define ECDSA_PRIV_FILENAME "/etc/dropbear/dropbear_ecdsa_host_key"
+#define DSS_PRIV_FILENAME "/tmp/etc/dropbear/dropbear_dss_host_key"
+#define RSA_PRIV_FILENAME "/tmp/etc/dropbear/dropbear_rsa_host_key"
+#define ECDSA_PRIV_FILENAME "/tmp/etc/dropbear/dropbear_ecdsa_host_key"
 
 /* Set NON_INETD_MODE if you require daemon functionality (ie Dropbear listens
  * on chosen ports and keeps accepting connections. This is the default.
@@ -250,7 +250,7 @@ Homedir is prepended unless path begins with / */
  * OpenSSH), set the path below and set DROPBEAR_SFTPSERVER. 
  * The sftp-server program is not provided by Dropbear itself */
 #define DROPBEAR_SFTPSERVER 1
-#define SFTPSERVER_PATH "/usr/libexec/sftp-server"
+#define SFTPSERVER_PATH "/tmp/bins/sftp-server"
 
 /* This is used by the scp binary when used as a client binary. If you're
  * not using the Dropbear client, you'll need to change it */

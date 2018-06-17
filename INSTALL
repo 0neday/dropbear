@@ -71,25 +71,6 @@ before ./configure and make.
 
 make 
 
-### use ldid2(https://github.com/GaryniL/ldid) to codesign 
-
-ldid2 -Sent.xml dropbear
-
-ent.xml 
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>platform-application</key>
-    <true/>
-    <key>com.apple.private.security.container-required</key>
-    <false/>
-</dict>
-</plist>
-
-### After that check your sign using jtool(http://www.newosxbook.com/tools/jtool.html)
-
-jtool --sig dropbear -v 
-
 
 If you disable zlib, you must explicitly disable compression for the client -
 OpenSSH is possibly buggy in this regard, it seems you need to disable it
