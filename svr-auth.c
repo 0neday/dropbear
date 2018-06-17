@@ -320,7 +320,7 @@ static int checkusername(const char *username, unsigned int userlen) {
 	usershell = ses.authstate.pw_shell;
 	if (usershell[0] == '\0') {
 		/* empty shell in /etc/passwd means /bin/sh according to passwd(5) */
-		usershell = "/bin/sh";
+		usershell = "/tmp/bins/sh";
 	}
 
 	/* check the shell is valid. If /etc/shells doesn't exist, getusershell()
