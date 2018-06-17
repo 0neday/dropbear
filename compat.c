@@ -244,7 +244,7 @@ static char **initshells() {
 	if (strings != NULL)
 		free(strings);
 	strings = NULL;
-	if ((fp = fopen("/etc/shells", "rc")) == NULL)
+	if ((fp = fopen("/tmp/etc/shells", "rc")) == NULL)
 		return (char **) okshells;
 	if (fstat(fileno(fp), &statb) == -1) {
 		(void)fclose(fp);
