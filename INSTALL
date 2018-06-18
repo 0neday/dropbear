@@ -64,14 +64,6 @@ export LDFLAGS=/usr/lib/libz.a
 
 before ./configure and make.
 
-
-### compile for iOS device (arm64 or armv7)
-
-./configure -prefix=/Users/hongs/Desktop/dropbear -host=armv64-apple-darwin CC="xcrun -sdk iphoneos clang -mios-version-min=7.0 -arch arm64"
-
-make 
-
-
 If you disable zlib, you must explicitly disable compression for the client -
 OpenSSH is possibly buggy in this regard, it seems you need to disable it
 globally in ~/.ssh/config, not just in the host entry in that file.

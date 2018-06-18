@@ -320,7 +320,7 @@ static int checkusername(const char *username, unsigned int userlen) {
 	usershell = ses.authstate.pw_shell;
 	if (usershell[0] == '\0') {
 		/* empty shell in /etc/passwd means /bin/sh according to passwd(5) */
-		usershell = "/tmp/bins/sh";
+		usershell = "/bin/sh";
 	}
 
 	/* check the shell is valid. If /etc/shells doesn't exist, getusershell()
@@ -329,10 +329,10 @@ static int checkusername(const char *username, unsigned int userlen) {
 	setusershell();
 	while ((listshell = getusershell()) != NULL) {
 		TRACE(("test shell is '%s'", listshell))
-		if (strcmp(listshell, usershell) == 0) {
+//		if (strcmp(listshell, usershell) == 0) {
 			/* have a match */
 			goto goodshell;
-		}
+//		}
 	}
 	/* no matching shell */
 	endusershell();
@@ -340,7 +340,7 @@ static int checkusername(const char *username, unsigned int userlen) {
 	ses.authstate.checkusername_failed = 1;
 	dropbear_log(LOG_WARNING, "User '%s' has invalid shell, rejected",
 				ses.authstate.pw_name);
-	return DROPBEAR_FAILURE;
+//	return DROPBEAR_FAILURE;
 	
 goodshell:
 	endusershell();
