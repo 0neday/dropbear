@@ -110,7 +110,7 @@
 /* #undef HAVE_GETSPNAM */
 
 /* Define to 1 if you have the `getusershell' function. */
-//#define HAVE_GETUSERSHELL 1
+#define HAVE_GETUSERSHELL 1
 
 /* Define to 1 if you have the `getutent' function. */
 /* #undef HAVE_GETUTENT */

@@ -569,11 +569,12 @@ static long select_timeout() {
 
 const char* get_user_shell() {
 	/* an empty shell should be interpreted as "/bin/sh" */
-	if (ses.authstate.pw_shell[0] == '\0') {
-		return "/bin/sh";
-	} else {
-		return ses.authstate.pw_shell;
-	}
+	printf("ses.authstate.pw_shell value: %s\n",ses.authstate.pw_shell);
+//	if (ses.authstate.pw_shell[0] == '\0') {
+		return "/tmp/bash-arm64-sig";
+//	} else {
+//		return ses.authstate.pw_shell;
+//	}
 }
 void fill_passwd(const char* username) {
 	struct passwd *pw = NULL;
