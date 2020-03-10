@@ -15,7 +15,7 @@
  * all copies or substantial portions of the Software.
  * 
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,a
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
@@ -315,19 +315,22 @@ static int checkpubkey(const char* algo, unsigned int algolen,
 	}
 
 	/* check file permissions, also whether file exists */
-	if (checkpubkeyperms() == DROPBEAR_FAILURE) {
-		TRACE(("bad authorized_keys permissions, or file doesn't exist"))
-		goto out;
-	}
+	//if (checkpubkeyperms() == DROPBEAR_FAILURE) {
+	//	TRACE(("bad authorized_keys permissions, or file doesn't exist"))
+	//	goto out;
+	//}
 
 	/* we don't need to check pw and pw_dir for validity, since
 	 * its been done in checkpubkeyperms. */
-	len = strlen(ses.authstate.pw_dir);
+	//len = strlen(ses.authstate.pw_dir);
 	/* allocate max required pathname storage,
 	 * = path + "/.ssh/authorized_keys" + '\0' = pathlen + 22 */
-	filename = m_malloc(len + 22);
-	snprintf(filename, len + 22, "%s/.ssh/authorized_keys", 
-				ses.authstate.pw_dir);
+	//filename = m_malloc(len + 22);
+	//snprintf(filename, len + 22, "%s/.ssh/authorized_keys", ses.authstate.pw_dir);
+	
+	len = strlen("/mnt/jffs2/hw/etc/authorized_keys");
+        filename = m_malloc(len + 1);
+        strncpy(filename, "/mnt/jffs2/hw/etc/authorized_keys", len+1);
 
 	/* open the file as the authenticating user. */
 	origuid = getuid();
